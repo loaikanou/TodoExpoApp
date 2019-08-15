@@ -1,6 +1,7 @@
 import React from 'react';
-import TabNavigator from './main_navigation';
-import { Font, AppLoading } from "expo"; // requirement for using native-base in expo
+import AppContainer from './main_navigation';
+import { AppLoading } from 'expo'; // requirement for using native-base in expo
+import * as Font from 'expo-font' // fix import fonts
 import { Provider } from 'react-redux';
 import store from '../store/create_store';
 
@@ -16,9 +17,9 @@ export default class Navigation extends React.Component {
   // required to load native-base font in expo
   async componentWillMount() {
     await Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
-    });   
+      'Roboto': require('../assets/fonts/Roboto.ttf'),
+      'Roboto_medium': require('../assets/fonts/Roboto_medium.ttf'),
+    }),
     this.setState({ fontLoading: false });
   }
 
@@ -30,7 +31,7 @@ export default class Navigation extends React.Component {
       }else{
         return (
           <Provider store = { store }>
-            <TabNavigator />          
+            <AppContainer />          
           </Provider>
         );
       }

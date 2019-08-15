@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icon } from 'native-base'
-import { TabNavigator, TabBarBottom, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation'
+import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation'
 import ToDoAll from '../containers/todo_all'
 
 class AllToDo extends React.Component {   
@@ -27,7 +27,7 @@ class CompletedToDo extends React.Component {
   }
 }
 
-export default createMaterialTopTabNavigator({
+const MaterialTab = createMaterialTopTabNavigator({
   All: { screen: AllToDo },
   Active: { screen: ActiveToDo },
   Completed: { screen: CompletedToDo }
@@ -75,6 +75,10 @@ export default createMaterialTopTabNavigator({
   swipeEnabled: true,
   lazy: true
 })
+
+const AppContainer = createAppContainer(MaterialTab);
+
+export default AppContainer;
 
 // export default TabNavigator({
 //   All: { screen: AllToDo },

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Body,  Icon, CheckBox, ListItem } from 'native-base';
-import { Input, Button } from 'native-base';
+import { Body,  Icon, CheckBox, ListItem, Input, Button } from 'native-base';
 
 export default class NewToDo extends React.Component{    
     
