@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Todo Expo",
-    "description": "Todo App Example, using Expo, React Native, Redux.",
-    "slug": "TodoExpoApp",
+    "description": "Todo App Example, using Expo, React Native, Redux, react-navigation.",
+    "slug": "TodoExpo",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [

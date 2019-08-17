@@ -1,7 +1,8 @@
-import React from 'react'
-import { Icon } from 'native-base'
-import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation'
-import ToDoAll from '../containers/todo_all'
+import * as React from 'react';
+// import * as Font from 'expo-font';
+import { FontAwesome } from '@expo/vector-icons';
+import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
+import ToDoAll from '../containers/todo_all';
 
 class AllToDo extends React.Component {   
   render() {    
@@ -27,41 +28,41 @@ class CompletedToDo extends React.Component {
   }
 }
 
-const MaterialTab = createMaterialTopTabNavigator({
+const MaterialBottomTabNavigator = createMaterialTopTabNavigator({
   All: { screen: AllToDo },
   Active: { screen: ActiveToDo },
   Completed: { screen: CompletedToDo }
 },{
-  navigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, horizontal, tintColor }) => {
-      const { routeName } = navigation.state;
-      let iconName
-      if (routeName === 'All') {
-        iconName = `list`
-      } else if (routeName === 'Active') {
-        iconName = `unlock`
-      } else{
-        iconName = `checkmark`
-      }
-      return <Icon name={iconName} size={horizontal ? 20 : 25} color={'tintColor'} active = { true } />;
-    },
-  }),
+  // navigationOptions: ({ navigation }) => ({
+    // tabBarIcon: ({ focused, horizontal, tintColor }) => {
+    //   const { routeName } = navigation.state;
+    //   let iconName
+    //   if (routeName === 'All') {
+    //     iconName = 'facebook'
+    //   } else if (routeName === 'Active') {
+    //     iconName = 'facebook'
+    //   } else{
+    //     iconName = 'facebook'
+    //   }
+    //   return <FontAwesome name={iconName}  size={horizontal ? 20 : 25} color={tintColor} active={ focused } />;
+    // },
+  // }),
   tabBarOptions: {
-    activeTintColor: 'tomato',
+    activeTintColor: '#0066cc',
     inactiveTintColor: 'gray',
     showLabel: true,
-    showIcon: true,
+    // showIcon: true,
     upperCaseLabel: true,
     scrollEnabled: false,
-    tabStyle: {
+    // tabStyle: {
 
-    },
-    labelStyle: {
+    // },
+    // labelStyle: {
 
-    },
-    iconStyle: {
+    // },
+    // iconStyle: {
 
-    },
+    // },
     style: {
       backgroundColor: '#eee',
     },
@@ -69,43 +70,12 @@ const MaterialTab = createMaterialTopTabNavigator({
       backgroundColor: '#0066cc',
     },
   },
-  // tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
   animationEnabled: true,
   swipeEnabled: true,
   lazy: true
 })
 
-const AppContainer = createAppContainer(MaterialTab);
+const AppContainer = createAppContainer(MaterialBottomTabNavigator);
 
 export default AppContainer;
-
-// export default TabNavigator({
-//   All: { screen: AllToDo },
-//   Active: { screen: ActiveToDo },
-//   Completed: { screen: CompletedToDo },
-// },{
-//   navigationOptions: ({ navigation }) => ({
-//     tabBarIcon: ({ focused, tintColor }) => {
-//       const { routeName } = navigation.state;
-//       let iconName
-//       if (routeName === 'All') {
-//         iconName = `list`
-//       } else if (routeName === 'Active') {
-//         iconName = `unlock`
-//       } else{
-//         iconName = `checkmark`
-//       }
-  
-//       return <Icon name= { iconName } color = { 'red' } active = { true } />
-//     },
-//   }),
-//   tabBarOptions: {
-//     activeTintColor: 'tomato',
-//     inactiveTintColor: 'gray',
-//   },
-//   tabBarComponent: TabBarBottom,
-//   tabBarPosition: 'bottom',
-//   animationEnabled: true,
-//   swipeEnabled: true,
-// })
